@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verified - Stake Ministering</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #818CF8 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 400px;
+    }
+    .icon-box {
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .checkmark {
+      width: 50px;
+      height: 50px;
+      stroke: #22C55E;
+      stroke-width: 3;
+      fill: none;
+      animation: checkmark 0.5s ease-out forwards;
+    }
+    @keyframes checkmark {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .checkmark path {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: checkmark 0.5s ease-out 0.2s forwards;
+    }
+    .checkmark circle {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: checkmark 0.5s ease-out forwards;
+    }
+    h1 {
+      color: white;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+    .message {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    .btn {
+      display: inline-block;
+      color: #4F46E5;
+      background: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .btn:active {
+      transform: translateY(0);
+    }
+    .hint {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.875rem;
+      margin-top: 1.5rem;
+      line-height: 1.5;
+    }
+    .hint strong {
+      color: rgba(255,255,255,0.9);
+    }
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .footer a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon-box">
+      <svg class="checkmark" viewBox="0 0 50 50">
+        <circle cx="25" cy="25" r="22"/>
+        <path d="M15 25 L22 32 L35 18"/>
+      </svg>
+    </div>
+
+    <h1>Email Verified!</h1>
+    <p class="message">
+      Your email has been confirmed successfully. You can now sign in to your account.
+    </p>
+
+    <a href="stakeadmin://" class="btn" id="openApp">
+      Open Stake Ministering App
+    </a>
+
+    <p class="hint">
+      If the button doesn't work, open the <strong>Stake Ministering</strong> app on your device and sign in with your email and password.
+    </p>
+
+    <div class="footer">
+      <a href="./index.html">Back to Stake Ministering</a>
+    </div>
+  </div>
+
+  <script>
+    // Try to open the app automatically after a short delay
+    setTimeout(function() {
+      window.location.href = 'stakeadmin://';
+    }, 1500);
+  </script>
+</body>
+</html>
