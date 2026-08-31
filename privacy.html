@@ -72,7 +72,7 @@
   </div>
 
   <div class="container">
-    <p class="meta"><strong>Effective Date:</strong> January 31, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 21, 2026</p>
+    <p class="meta"><strong>Effective Date:</strong> January 31, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> August 31, 2026</p>
 
     <div class="card">
       <h2>Introduction</h2>
@@ -100,10 +100,15 @@
         <li><strong>High Council number</strong> (if applicable)</li>
         <li>Administrative permissions and liaison assignments</li>
       </ul>
+      <p>Because ward or branch membership, callings, priesthood ordination records, and leadership assignments can reveal religious affiliation or beliefs, we classify this organizational data as <strong>Sensitive Information</strong> for app-store privacy disclosures.</p>
 
       <h3>Feature-Specific Data</h3>
-      <p><strong>Calling & Release Workflow:</strong> Names of individuals being called or released, calling details and workflow status, sustaining votes from authorized leaders, extension and set-apart records.</p>
-      <p><strong>Meetings & Assignments:</strong> Meeting schedules and attendance, speaking and prayer assignments, action items and follow-up tasks.</p>
+      <p><strong>Calling &amp; Release Workflow:</strong> Names of individuals being called or released, calling details and workflow status, sustaining votes from authorized leaders, extension and set-apart records.</p>
+      <p><strong>Meetings &amp; Assignments:</strong> Meeting schedules and attendance, speaking and prayer assignments, action items and follow-up tasks.</p>
+      <p><strong>Recordings, Transcripts, and AI Features:</strong> If you choose to record a meeting or use an AI-assisted feature, we collect the audio or prompt you provide, meeting and recording metadata, transcripts, and generated summaries, topics, decisions, action items, speaker labels, or other notes. We use this information to provide recording playback, transcription, review, search, and meeting follow-up. Only the content needed for the feature is sent to the service that performs it. Recording transcription may use Groq, Deepgram, or OpenAI Whisper, depending on the configured path and fallback; Google Gemini may perform recording analysis, speaker resolution, and embedding work. AssemblyAI may be used only when optional speaker-diarization processing is separately configured. Meeting analysis, retrieval, and B.O.B. may send the transcript, your question, and the authorized meeting, handbook, or app context needed to answer it to Google Gemini, OpenAI, Groq, or DeepSeek. Talk-preparation coaching sends the coaching conversation and topic you provide to Anthropic Claude. These providers are not all used for every feature or request.</p>
+      <p><strong>Calendar:</strong> We store calendar and appointment information created in Stake Admin, such as titles, dates, times, locations, descriptions, organizers, participants, visibility, and calendar-feed subscriptions. If you choose to add an event to a device calendar, Stake Admin reads available writable calendars and sends the selected event to your device operating system or calendar provider. A calendar subscription URL contains a private bearer token. Anyone who obtains that URL can request the read-only feed without signing in to Stake Admin, so treat it like a password. Regenerating the link immediately invalidates the old token; you must update any connected calendar app. Calendar providers may cache the feed URL or event copies under their own policies, so regenerating or deleting a Stake Admin feed cannot remove copies already imported into another calendar.</p>
+      <p><strong>Bug Reports and Screenshots:</strong> A report may include its title and description, the current screen or route, account, stake and role context, reporter email, comments, and technical metadata. The report flow may prepare a screenshot of the current app screen for you to review before submission, and you may choose another screenshot or photo from your device. Submitted screenshots are stored privately and shown through short-lived authorized links to the reporter where applicable and to approved support administrators.</p>
+      <p><strong>Usage and Diagnostics:</strong> We collect first-party usage and reliability events linked to your account or stake, such as screens visited, session timing, feature and workflow usage, load timing, repeated taps, recording-upload health, and limited B.O.B. question text and response metadata. Crash and performance diagnostics may include account identifiers, stake and role tags, device, operating-system and app-version information, routes, stack traces, and performance data. Sentry is initialized before sign-in, so a crash or performance diagnostic captured before account context is available may be received without our account, stake, or role linkage. After sign-in, later diagnostics may be linked to those details.</p>
       <p><strong>Push Notifications:</strong> Device push notification tokens and notification preferences.</p>
     </div>
 
@@ -116,6 +121,9 @@
         <li>Coordinate meeting schedules and assignments</li>
         <li>Send meeting reminders and assignment notifications</li>
         <li>Track ordination and setting apart processes</li>
+        <li>Transcribe recordings and provide requested AI-assisted features</li>
+        <li>Respond to bug reports and support requests</li>
+        <li>Monitor reliability, security, and product usage</li>
         <li>Improve app functionality and user experience</li>
       </ul>
     </div>
@@ -132,17 +140,21 @@
       </ul>
 
       <h3>Third-Party Service Providers</h3>
-      <p><strong>Supabase (Database & Authentication):</strong> Stores all app data securely and manages user authentication.</p>
+      <p><strong>Supabase (Database &amp; Authentication):</strong> Stores the app's core database records, authentication data, and selected files, and manages user authentication.</p>
+      <p><strong>Google Cloud (Recording Processing and Storage):</strong> Cloud Run processes configured recording and analysis jobs. Google Cloud Storage may store authorized recording archive or playback copies.</p>
+      <p><strong>Resend (Email Delivery):</strong> Delivers account, workflow, support, reminder, and other transactional emails. It receives the recipient email address, name when used in the message, and the message content needed for delivery.</p>
       <p><strong>Expo (Push Notifications):</strong> Delivers push notifications to your device.</p>
       <p><strong>OAuth Providers:</strong> Google Sign-In and Apple Sign-In handle authentication. We receive only your email and name from these services.</p>
+      <p><strong>Sentry (Crash &amp; Performance Monitoring):</strong> Processes limited account, device, route, error, and performance information so we can diagnose failures.</p>
+      <p><strong>Transcription and AI Providers:</strong> When you use recording, transcription, B.O.B., or another AI-assisted feature, only the audio, transcript, prompt, or related context needed for that feature may be processed by the configured provider for that request. No one provider receives all of your app data, and these providers are not all used for every feature. <strong>Google Gemini:</strong> recording analysis, speaker resolution, and retrieval or embedding work for meeting and app-help features. <strong>Groq, Deepgram, and OpenAI Whisper:</strong> active recording transcription paths and fallbacks, as configured for the recording pipeline. <strong>AssemblyAI:</strong> optional speaker diarization only when that separate processing path is configured; it is not part of every recording pipeline. <strong>OpenAI:</strong> B.O.B. generation when the configured OpenAI model is selected, and the OpenAI Whisper transcription fallback described above. <strong>Anthropic (Claude):</strong> talk-preparation coaching messages and the topic you provide to that coaching feature. <strong>DeepSeek:</strong> B.O.B. questions and the authorized meeting, handbook, or app context needed to answer them when DeepSeek is selected as a generation provider or runtime fallback. Provider retention and handling are governed by the applicable provider terms and policies; shared meeting records and transcripts remain subject to the retention rules below.</p>
 
       <h3>We Do NOT:</h3>
       <ul>
         <li>Sell your personal information to third parties</li>
-        <li>Use advertising tracking or behavioral analytics</li>
+        <li>Serve targeted advertising or use your information for cross-app tracking</li>
         <li>Share data with marketing services</li>
-        <li>Use third-party analytics platforms</li>
       </ul>
+      <p>We do use first-party product analytics and the service providers described above to operate, secure, troubleshoot, and improve Stake Admin.</p>
     </div>
 
     <div class="card">
@@ -157,15 +169,43 @@
     </div>
 
     <div class="card">
+      <h2>Data Retention</h2>
+      <p>Account and user-scoped operational data are retained while your account is active and are removed or detached as described below when account deletion completes.</p>
+      <p>Shared or stake-owned organizational records may remain after an account is deleted, including meeting agendas and history, attendance, calling or ordination history, action items, calendar events, recordings, transcripts, AI-generated notes, and support records. Account references are detached or anonymized where supported. These shared records remain until an authorized user deletes them or they are no longer needed to provide the service, preserve the shared record, address security or support issues, or meet legal obligations.</p>
+      <p>Source audio used to process a recording is generally scheduled for deletion approximately 10 days after creation. Authorized playback or archive copies, transcripts, and generated notes may remain with the shared meeting record until that record is deleted or no longer needed. Crash, support, and security records are retained only as long as reasonably needed to diagnose, resolve, and document the related issue. Provider backups and caches may clear on their own retention schedules. Calendar feed tokens remain active until you disable or regenerate the feed. Regeneration invalidates the old bearer URL, but it cannot erase copies already cached or imported by an outside calendar provider.</p>
+    </div>
+
+    <div class="card">
       <h2>Your Rights and Choices</h2>
       <p><strong>Access and Correction:</strong> You can view and update your profile information through the app's settings screen.</p>
       <p><strong>Push Notifications:</strong> You can disable push notifications through the app's notification preferences or your device's system settings.</p>
-      <p><strong>Account Deletion:</strong> To request account deletion, contact your stake administrator or email us at the address below.</p>
+      <p><strong>Calendar:</strong> You can deny or revoke calendar access in your device settings. Events already added to another calendar must be managed through that calendar provider.</p>
+      <p><strong>Account Deletion:</strong> In the app, sign in, open <strong>More</strong>, select <strong>Delete My Account</strong>, review the notice, enter <strong>DELETE</strong>, and select <strong>Delete Account</strong>. If you are the only active administrator for a stake, the app may require another active administrator to be assigned first.</p>
+      <p>If you cannot complete the in-app process, visit <a href="./delete-account.html">Delete your Stake Admin account</a> or email <a href="mailto:support@stakeadmin.app">support@stakeadmin.app</a>. Do not send your password. We may request information reasonably needed to verify that the account belongs to you. Deleting the app from your device does not delete your account.</p>
     </div>
 
     <div class="card">
       <h2>Age Requirement</h2>
       <p>Stake Admin is intended for adult leadership use. The app is not intended for anyone under 18 years of age, and we do not knowingly collect personal information from minors.</p>
+    </div>
+
+    <div class="card">
+      <h2>App Store Privacy Labels</h2>
+      <h3>Data Used to Track You</h3>
+      <p>None. We do not track users across apps or websites.</p>
+      <h3>Data Linked to You</h3>
+      <ul>
+        <li>Contact Info (email, name, phone)</li>
+        <li>Sensitive Information (ward or branch membership, callings, ordination records, and leadership assignments that can reveal religious affiliation or beliefs)</li>
+        <li>Photos or Videos (optional screenshots or photos submitted with support reports)</li>
+        <li>User Content (calling assignments, meeting records, meeting audio, transcripts, notes, B.O.B. questions, and coaching conversations)</li>
+        <li>Customer Support (bug reports, feature requests, comments, and related attachments)</li>
+        <li>Identifiers (user ID, device ID, and push token)</li>
+        <li>Usage Data (first-party product interaction and other usage events)</li>
+        <li>Diagnostics (crash, performance, and other diagnostic data collected after sign-in)</li>
+      </ul>
+      <h3>Data Not Linked to You</h3>
+      <p>None declared. A crash or performance diagnostic captured before sign-in may lack Stake Admin account, stake, or role context, but it can still include device or network details. We therefore conservatively classify diagnostics as linked to you for App Store privacy-label purposes.</p>
     </div>
 
     <div class="card">
@@ -176,7 +216,7 @@
 
     <div class="footer">
       <p>&copy; 2026 Stake Admin. All rights reserved.</p>
-      <p><a href="./terms.html">Terms of Service</a></p>
+      <p><a href="./terms.html">Terms of Service</a> &nbsp;|&nbsp; <a href="./delete-account.html">Delete Account</a></p>
     </div>
   </div>
 </body>
